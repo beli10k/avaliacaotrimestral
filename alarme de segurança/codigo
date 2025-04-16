@@ -1,0 +1,33 @@
+import time
+import random
+
+def sensor_movimento():t
+    return random.choice([True, False])
+
+def alarme_deve_ligar(movimento):
+    erro = random.choice([True, False])
+    if erro:
+        return not movimento
+    return movimento
+
+def alarme():
+    print("🚨 Alarme disparado! 🚨")
+    print("🔊 Tocando som do alarme...")
+    time.sleep(2)
+    print("Alarme desligado.\n")
+
+print("Sistema de Alarme de Segurança Iniciado.")
+time.sleep(2)
+print("Monitorando...\n")
+time.sleep(1)
+
+while True:
+    movimento = sensor_movimento()
+    print("Movimento detectado?", "Sim" if movimento else "Não")
+
+    if alarme_deve_ligar(movimento):
+        alarme()
+    else:
+        print("Sem alarme. Sistema em espera...\n")
+
+    time.sleep(3)
